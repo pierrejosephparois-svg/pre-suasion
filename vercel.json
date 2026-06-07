@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    { "src": "/methode", "dest": "/" },
+    { "src": "/methode.html", "dest": "/" }
+  ]
+}
