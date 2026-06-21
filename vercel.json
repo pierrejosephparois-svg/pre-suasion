@@ -1,9 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "routes": [
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/methode", "dest": "/index.html" },
-    { "src": "/methode.html", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/notre-solution", "destination": "/solution.html" }
+  ],
+  "redirects": [
+    { "source": "/solution", "destination": "/notre-solution", "permanent": true },
+    { "source": "/solution.html", "destination": "/notre-solution", "permanent": true }
   ]
 }
