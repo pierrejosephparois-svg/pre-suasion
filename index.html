@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pré-suasion — Le système &amp; la solution</title>
-<link rel="icon" type="image/png" href="/favicon.png">
+<title>Pré-suasion — v2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter+Tight:wght@500;600;700;800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* General Sans (inlined for offline use) */
 @font-face{font-family:'General Sans';src:url('https://cdn.fontshare.com/wf/MFQT7HFGCR2L5ULQTW6YXYZXXHMPKLJ3/YWQ244D6TACUX5JBKATPOW5I5MGJ3G73/7YY3ZAAE3TRV2LANYOLXNHTPHLXVWTKH.woff2') format('woff2');font-weight:400;font-display:swap;font-style:normal}
@@ -45,14 +44,12 @@ body{
 /* warm ambient field */
 body::before{
   content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(1100px 760px at 82% -8%, rgba(123,252,153,.13), transparent 58%),
-    radial-gradient(900px 700px at -5% 32%, rgba(123,252,153,.06), transparent 55%),
-    radial-gradient(1200px 1000px at 50% 116%, rgba(52,196,106,.12), transparent 60%);
+  background:none;
 }
 .spark{position:fixed;width:7px;height:7px;border-radius:50%;background:var(--accent);
   box-shadow:0 0 18px 4px rgba(123,252,153,.7);z-index:1;pointer-events:none;opacity:.85}
 .s1{top:38%;right:14%}.s2{top:64%;left:9%}.s3{top:84%;right:30%}
+.spark{display:none}
 
 #systeme,#resultats,#accompagnement,#temoignages,#club{scroll-margin-top:90px}
 .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;border-radius:8px;border:1px solid var(--line);background:transparent;cursor:pointer}
@@ -129,6 +126,8 @@ h2{font-family:var(--display);font-size:clamp(2rem,4.6vw,3.5rem);font-weight:700
 .hero-author-id{display:flex;flex-direction:column;line-height:1.25;text-align:left}
 .hero-author-name{font-family:var(--display);font-weight:700;font-size:1.2rem;letter-spacing:-.01em;color:var(--text)}
 .hero-author-role{font-size:1rem;color:var(--dim)}
+.hero-author-pos{font-size:.95rem;font-weight:600;color:var(--accent);margin-top:.15rem}
+.hero-position{display:inline-block;font-family:var(--display);font-weight:700;font-size:clamp(1.15rem,1.9vw,1.6rem);letter-spacing:.04em;text-transform:uppercase;color:var(--accent);line-height:1.25;margin-bottom:1.5rem;padding:.55rem 1.1rem;border:1px solid rgba(123,252,153,.45);border-radius:10px;background:rgba(123,252,153,.08);text-wrap:balance}
 .hero-proof{font-size:1.02rem;color:var(--text);max-width:600px;line-height:1.65;margin:0 0 2.4rem}
 .hero-proof b{font-family:var(--display);font-weight:600}
 .hero-cta{display:flex;gap:.9rem;flex-wrap:wrap}
@@ -754,14 +753,12 @@ body{
 /* warm ambient field */
 body::before{
   content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(1100px 760px at 82% -8%, rgba(123,252,153,.13), transparent 58%),
-    radial-gradient(900px 700px at -5% 32%, rgba(123,252,153,.06), transparent 55%),
-    radial-gradient(1200px 1000px at 50% 116%, rgba(52,196,106,.12), transparent 60%);
+  background:none;
 }
 .spark{position:fixed;width:7px;height:7px;border-radius:50%;background:var(--accent);
   box-shadow:0 0 18px 4px rgba(123,252,153,.7);z-index:1;pointer-events:none;opacity:.85}
 .s1{top:38%;right:14%}.s2{top:64%;left:9%}.s3{top:84%;right:30%}
+.spark{display:none}
 
 /* ---------- HEADER ---------- */
 header{
@@ -1081,10 +1078,23 @@ image-slot{display:block;width:100%}
 .client .ct{color:var(--dim);font-size:.84rem;font-family:var(--mono);letter-spacing:.03em}
 
 /* ---------- FINAL CTA ---------- */
-.final{text-align:center;padding-top:100px;padding-bottom:72px;margin-top:0;position:relative;z-index:2;min-height:0;height:auto}
+.final{text-align:center;padding-top:14px;padding-bottom:72px;margin-top:0;position:relative;z-index:2;min-height:0;height:auto}
 .final h2{max-width:16ch;margin-left:auto;margin-right:auto}
 .final .lead{margin:1.6rem auto 2.6rem}
 .final .hero-cta{justify-content:center}
+.qualif{max-width:900px;margin:2.6rem auto 0;padding:clamp(1.4rem,3vw,2.2rem);border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03);text-align:left}
+.q-title{font-family:var(--display);font-weight:600;font-size:clamp(1.1rem,2vw,1.45rem);letter-spacing:-.02em;color:var(--text)}
+.q-row{display:grid;grid-template-columns:1fr 1fr auto;gap:.7rem;align-items:end;margin-top:1.4rem}
+.q-field{display:flex;flex-direction:column;gap:.4rem;border:1px solid var(--line);border-radius:12px;padding:.6rem .8rem;background:rgba(0,0,0,.25)}
+.q-lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.q-field select{appearance:none;background:transparent;border:0;color:var(--text);font-family:var(--body);font-size:1rem;padding:0;outline:none;cursor:pointer}
+.q-field select option{background:#12131c;color:#fff}
+.q-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
+.q-chip{font-family:var(--body);font-size:.86rem;color:var(--dim);background:transparent;border:1px solid var(--line);border-radius:999px;padding:.42rem .9rem;cursor:pointer;transition:.18s}
+.q-chip:hover{color:var(--text);border-color:var(--accent)}
+.q-chip.active{color:var(--text);border-color:var(--accent);background:rgba(255,255,255,.05)}
+.q-note{margin-top:1.2rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.05em;color:var(--dim);opacity:.75}
+@media(max-width:760px){.q-row{grid-template-columns:1fr}.q-row .btn{width:100%;justify-content:center}.q-chip{padding:.62rem 1rem;font-size:.9rem}}
 
 /* ---------- PREUVES : vidéos + messages ---------- */
 .proof-sec{padding-top:.5rem;padding-bottom:5.5rem}
@@ -1148,7 +1158,7 @@ image-slot{display:block;width:100%}
 @media(max-width:600px){.nflx-rail .vw-card{flex:0 0 86%}}
 
 /* ---------- SIGNATURE LOGO (avant CTA final) ---------- */
-.siglogo{position:relative;width:100%;overflow:hidden;isolation:isolate;display:flex;justify-content:center;align-items:flex-start;padding:100px 1rem 0;min-height:0}
+.siglogo{position:relative;width:100%;overflow:hidden;isolation:isolate;display:flex;justify-content:center;align-items:flex-start;padding:56px 1rem 0;min-height:0}
 .siglogo img{display:block;width:clamp(120px,14vw,150px);height:auto;opacity:.16;filter:grayscale(1) brightness(.6) contrast(.92)}
 .siglogo::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(54% 58% at 50% 36%, rgba(6,8,14,.5), rgba(6,8,14,.12) 62%, transparent 84%)}
 @media(max-width:680px){.siglogo img{width:clamp(100px,28vw,140px)}}
@@ -1179,6 +1189,16 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
   .clients{grid-template-columns:repeat(2,1fr)}
   section{padding:5rem clamp(1.1rem,5vw,2rem)}
   .sec-head{flex-direction:column}
+  header{gap:.6rem;padding-left:clamp(1rem,4vw,1.4rem);padding-right:clamp(1rem,4vw,1.4rem)}
+  .head-actions{margin-left:auto;gap:.4rem;min-width:0}
+  .nav-toggle{order:3}
+}
+@media(max-width:620px){
+  header{gap:.5rem}
+  .status-pill{display:none}
+  .head-actions .btn{padding:.6rem .85rem;font-size:.82rem;border-radius:9px}
+  .head-actions .btn .arr{display:none}
+  .logo img{height:19px}
 }
 
 /* ---------- ADDED: bio list · linkedin · section head · result avatars · logos ---------- */
@@ -1208,13 +1228,14 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
 .wa-p{font-size:1.08rem;color:var(--dim);line-height:1.65;margin-bottom:1.8rem}
 .wa-p .hl{color:var(--accent);font-weight:600}
 .wa-micro{display:block;font-size:.78rem;color:var(--dim);margin-top:.9rem}
-.wa-sep{width:1px;height:280px;justify-self:center;align-self:center;background:linear-gradient(to bottom,transparent,rgba(100,255,150,.28),transparent)}
-.wa-phone-frame{position:relative;justify-self:end;align-self:center;width:100%;max-width:410px;padding:11px;border-radius:26px;background:linear-gradient(145deg,rgba(100,255,150,.08),rgba(255,255,255,.02));border:1px solid rgba(100,255,150,.22);box-shadow:0 28px 70px rgba(0,0,0,.28)}
-.wa-phone-frame::after{content:'';position:absolute;right:-10%;bottom:-10%;width:60%;height:50%;background:radial-gradient(circle,rgba(100,255,150,.16),transparent 70%);filter:blur(20px);z-index:-1;pointer-events:none}
+.wa-sep{width:1px;height:280px;justify-self:center;align-self:center;background:linear-gradient(to bottom,transparent,rgba(123,252,153,.28),transparent)}
+.wa-phone-frame{position:relative;justify-self:end;align-self:center;width:100%;max-width:410px;padding:11px;border-radius:26px;background:linear-gradient(145deg,rgba(123,252,153,.08),rgba(255,255,255,.02));border:1px solid rgba(123,252,153,.22);box-shadow:0 28px 70px rgba(0,0,0,.28)}
+.wa-phone-frame::after{content:'';position:absolute;right:-10%;bottom:-10%;width:60%;height:50%;background:radial-gradient(circle,rgba(123,252,153,.16),transparent 70%);filter:blur(20px);z-index:-1;pointer-events:none}
 .wa-phone-frame img{display:block;width:100%;height:auto;border-radius:18px;object-fit:contain}
 @media(max-width:820px){.wa-section{grid-template-columns:1fr;width:calc(100% - 48px);text-align:center}.wa-copy{max-width:560px;margin:0 auto}.wa-p .hl,.wa-h .hl{color:var(--accent)}.wa-sep{display:none}.wa-phone-frame{justify-self:center;max-width:340px;margin-top:40px}}
 /* Le système — 4 piliers, copy orienté résultat, images bottom-alignées */
 #systeme .grid.c4{grid-template-columns:repeat(4,minmax(0,1fr));gap:2.7rem;margin-top:2.8rem}
+@media(max-width:600px){#systeme .grid.c4,.grid.c4{grid-template-columns:1fr!important;gap:2.2rem}}
 #systeme .card{position:relative;padding:1.9rem 1.6rem;min-width:0;display:flex;flex-direction:column}
 #systeme .sys-pico{height:84px;width:100%;margin:.2rem 0 1.7rem;background:#fff;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:left center;mask-position:left center;-webkit-mask-size:contain;mask-size:contain;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
 #systeme .sys-txt{flex:1 1 auto}
@@ -1319,14 +1340,14 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
 .dc-title{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,2.8vw,2.6rem);letter-spacing:-.02em;margin-top:.5rem;white-space:nowrap}
 .dc-intro{color:var(--dim);font-size:1.08rem;line-height:1.7;margin-top:1.1rem}
 .dc-badge{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;padding:.75rem 1.5rem;border-radius:999px;background:rgba(123,252,153,.12);border:1px solid rgba(123,252,153,.35);color:var(--accent);font-family:var(--mono);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase}
-.dc-benefits{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(48px,5vw,56px);border-top:1px solid var(--line-soft)}
-.dc-b{padding:1.8rem 1.5rem;border-right:1px solid var(--line-soft);text-align:left}
+.dc-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:clamp(48px,5vw,56px) 0 0;border-top:1px solid var(--line-soft)}
+.dc-b{padding:1.9rem 1.6rem;border-right:1px solid var(--line-soft);text-align:left}
+.dc-b:first-child{padding-left:0}
+.dc-b:last-child{border-right:none;padding-right:0}
 .digicrew{margin-bottom:28px}
-.dc-b:last-child{border-right:none}
 .dc-b-k{font-family:var(--display);font-weight:600;font-size:1.08rem;color:var(--text);letter-spacing:-.01em;line-height:1.3}
 .dc-b-t{color:var(--dim);font-size:.92rem;line-height:1.55;margin-top:.6rem}
-@media(max-width:820px){.dc-top{grid-template-columns:1fr}.dc-benefits{grid-template-columns:1fr 1fr;margin-top:36px}.dc-b{border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}.dc-b:nth-child(2n){border-right:none}.digicrew{margin-top:72px;margin-bottom:0}.guarantee-band{margin-top:72px;padding:72px clamp(1.5rem,5vw,3rem)}}
-@media(max-width:560px){.dc-benefits{grid-template-columns:1fr}.dc-b{border-right:none!important;border-bottom:1px solid var(--line-soft)}}
+@media(max-width:820px){.dc-top{grid-template-columns:1fr}.dc-benefits{grid-template-columns:1fr;margin-top:36px}.dc-b{border-right:none;border-bottom:1px solid var(--line-soft);padding:1.4rem 0}.dc-b:last-child{border-bottom:none}.dc-b{border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}.dc-b:nth-child(2n){border-right:none}.digicrew{margin-top:72px;margin-bottom:0}.guarantee-band{margin-top:72px;padding:72px clamp(1.5rem,5vw,3rem)}}
 .guarantee-band{position:relative;margin-top:clamp(90px,8vw,120px);text-align:center;padding:clamp(90px,8vw,120px) clamp(1.5rem,5vw,3rem)}
 .guarantee-band::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:100vw;height:100%;background:linear-gradient(180deg,rgba(123,252,153,.11),rgba(123,252,153,.04));border-top:1px solid rgba(123,252,153,.25);border-bottom:1px solid rgba(123,252,153,.25);z-index:-1}
 .gb-shield{width:44px;height:44px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;color:var(--accent);opacity:.85}
@@ -1335,6 +1356,7 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
 .gb-title{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,4vw,3rem);letter-spacing:-.02em;color:var(--text);max-width:none;white-space:nowrap;margin:26px auto 0}
 .gb-text{color:var(--dim);font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.65;max-width:560px;margin:30px auto 0}
 .gb-text strong{color:var(--text);font-weight:700}
+@media(max-width:760px){.gb-title{white-space:normal;max-width:20ch}.guarantee-band{padding-left:1.2rem;padding-right:1.2rem}.wa-sol-flow,.wa-section{overflow-x:clip}}
 .gb-note{margin-top:22px;font-size:.78rem;color:var(--dim);opacity:.7}
 .bio-role-cap{padding:.85rem 1.2rem;border-top:1px solid var(--line-soft);font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
 .bio-text h2.bio-h{margin-bottom:.7rem;line-height:1.08}
@@ -1385,8 +1407,8 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
 .together-left{max-width:640px}
 .together-title{font-size:clamp(1.6rem,3.7vw,2.8rem);margin-top:26px}
 .benefits-lite{margin-top:52px;display:flex;flex-direction:column;gap:32px}
-.bl-item{display:flex;gap:.9rem;align-items:flex-start;max-width:640px}
-.bl-dot{flex-shrink:0;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-top:.55rem}
+.bl-item{display:flex;gap:1.1rem;align-items:flex-start;max-width:640px}
+.bl-num{flex-shrink:0;font-family:var(--display);font-weight:700;font-size:2.4rem;line-height:1;letter-spacing:-.03em;color:var(--accent);min-width:1.6ch;margin-top:-.1rem}
 .bl-title{font-family:var(--display);font-weight:600;font-size:1.15rem;letter-spacing:-.01em;line-height:1.3;color:var(--text)}
 .bl-text{color:#a7a29b;font-size:.94rem;line-height:1.6;margin-top:.4rem}
 .together-illus{width:clamp(260px,26vw,380px);opacity:.55;justify-self:start;align-self:center}
@@ -1405,9 +1427,7 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
            drop-shadow(0 6px 18px rgba(123,252,153,.35))}
   /* pictos des sections "négatives" → rouges au survol */
   .picto-tint-red{transition:opacity .18s cubic-bezier(.22,.68,.32,1),filter .18s cubic-bezier(.22,.68,.32,1),transform .18s cubic-bezier(.22,.68,.32,1)}
-  .picto-tint-red:hover{opacity:1;transform:translateY(-3px) scale(1.03);
-    filter:brightness(0) saturate(100%) invert(36%) sepia(89%) saturate(3000%) hue-rotate(343deg) brightness(102%) contrast(95%)
-           drop-shadow(0 6px 18px rgba(255,90,90,.35))}
+
 }
 
 /* ---------- XLIST (constats / règles / pertes) ---------- */
@@ -1461,14 +1481,48 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
 .reveal.in-view{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 </style>
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "y2g4efbs0v");
-</script>
+<style id="dc-theme">
+:root{--bg:#05070a;--accent:#7BFC99;--accent-deep:#34C46A;--text:#F5F5F4;--dim:#9b9b9f;--line:rgba(255,255,255,.1);--line-soft:rgba(255,255,255,.07);--card:#0b0c0f;--card-hover:#101115;--display:'Inter Tight','Geist',-apple-system,sans-serif;--body:'Geist','Inter Tight',-apple-system,sans-serif;--mono:'Geist Mono',ui-monospace,monospace}
+body{background:var(--bg)}
+body::before{background:none!important}
+body::after{content:'';position:fixed;top:0;bottom:0;left:50%;width:min(calc(var(--maxw) + 120px),calc(100% - 24px));transform:translateX(-50%);border-left:1px solid rgba(255,255,255,.06);border-right:1px solid rgba(255,255,255,.06);pointer-events:none;z-index:1}
+h1,h2,h3{color:#fff}
+h1{letter-spacing:-.035em}
+h2{letter-spacing:-.03em;font-weight:700}
+.hl{color:var(--accent)}
+.hero h1 .hl{color:#B8C0CC;background:linear-gradient(180deg,#E4E8EE 0%,#B8C0CC 55%,#8F98A6 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+header{background:rgba(5,7,10,.78)!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line)!important;border-radius:16px!important;margin:12px auto 0!important;max-width:calc(var(--maxw) + 40px);width:calc(100% - 24px);top:12px!important}
+.nav a{color:#c9c9cc;border-radius:999px}
+.nav a.active{background:#16171b;border:1px solid var(--line);color:#fff}
+.btn{border-radius:10px;font-family:var(--body)}
+.btn-primary{background:#fff!important;color:#0a0a0a!important;box-shadow:none!important;border:1px solid #fff}
+.btn-primary:hover{background:#e9e9ea!important;transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--line);color:#fff;background:#0b0c0f}
+.btn-ghost:hover{border-color:rgba(255,255,255,.3);background:#121317}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;color:#c9c9cc;border:1px solid var(--line);border-radius:999px;padding:.38rem .85rem .38rem .7rem;background:#0b0c0f}
+.eyebrow::before{background:var(--accent);box-shadow:0 0 0 3px rgba(123,252,153,.14)}
+.hero-position{color:#fff;background:#0b0c0f;border:1px solid var(--line);border-radius:999px;font-family:var(--mono);font-weight:500;letter-spacing:.08em;font-size:clamp(.92rem,1.3vw,1.1rem);padding:.6rem 1.15rem .6rem 1rem;display:inline-flex;align-items:center;gap:.7rem}
+.hero-position::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(123,252,153,.16);flex-shrink:0}
+.card,.icard,.callcard,.statpanel,.question,.tmain-info,.qualif,.term,.midcta{background:var(--card)!important;border:1px solid var(--line)!important;box-shadow:0 0 0 6px var(--bg),0 0 0 7px rgba(255,255,255,.055)!important}
+.card:hover,.icard:hover,.callcard:hover{border-color:rgba(255,255,255,.22)!important;background:var(--card-hover)!important;transform:translateY(-3px)}
+.icard h3,.card h3{text-transform:uppercase;letter-spacing:.01em;font-size:clamp(1.05rem,1.5vw,1.25rem)}
+.sys-txt h3{overflow-wrap:break-word;hyphens:auto}
+.icard .ic{background:#121317!important;border:1px solid var(--line)!important;color:#fff!important}
+.bignum,.bl-num{color:var(--accent)}
+.divider{background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)}
+.q-field{background:#0b0c0f!important}
+.q-chip.active{background:#fff;color:#0a0a0a;border-color:#fff}
+.q-lbl,.cl-k,.stat .top .n{color:var(--accent)}
+.status-pill{background:#0b0c0f}
+::selection{background:var(--accent);color:#0a0a0a}
+a{color:#fff}a:hover{color:var(--accent)}
+.btn-primary:hover,.btn:hover{color:inherit}
+.btn-primary:hover{color:#0a0a0a!important}
+header{box-sizing:border-box;padding-left:clamp(.9rem,2vw,1.6rem)!important;padding-right:clamp(.9rem,2vw,1.6rem)!important}
+header>*{min-width:0}
+@media(max-width:1200px){.nav{display:none!important}.nav-toggle{display:flex!important}}
+@media(max-width:620px){header{width:calc(100% - 16px);top:8px!important;margin-top:8px!important}}
+</style>
 </head>
 
 <body>
@@ -1501,7 +1555,7 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
 <!-- 1 — HERO -->
 <section class="hero" id="hero" data-screen-label="Hero">
   <div class="hero-content">
-    <div class="eyebrow">Pour les consultants IA &amp; automatisation</div>
+    <div class="hero-position">Consultant IA &amp; fondateur d’agence en automatisation</div>
     <h1 style="max-width:none;font-size:clamp(3.625rem,5.2vw,5.125rem);line-height:1.01;font-weight:700;text-wrap:balance">Comment signer<br/><span class="hl">plus de clients</span><br/>à des <span class="hl">prix plus élevés</span>.</h1>
     <p class="hero-promise">En 2020, je découvre quelque chose qui va <span class="hl">changer ma trajectoire</span>.</p>
     <div class="hero-bottom">
@@ -1509,7 +1563,7 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
         <img class="hero-author-ph" src="images/pj-portrait.jpg" alt="Pierre-Joseph Parois"/>
         <div class="hero-author-id">
           <span class="hero-author-name">Pierre-Joseph Parois</span>
-          <span class="hero-author-role">Fondateur Pré-suasion</span>
+          <span class="hero-author-role">Fondateur Pré-suasion | ex-PwC</span>
         </div>
       </div>
       <div class="hero-cta">
@@ -1737,7 +1791,7 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
   <div class="eyebrow">Le vrai levier</div>
   <h2>Vous n'avez pas besoin de devenir <span class="hl">le meilleur</span> de votre marché</h2>
   <div class="stack" style="max-width:680px;margin-top:1.8rem">
-    <p class="lead">Vous devez devenir quelqu'un qui propose une nouvelle opportunité et aide à prendre des décisions.</p>
+    <p class="lead">Vous devez simplement devenir quelqu'un qui propose une nouvelle opportunité et aide à prendre des décisions.</p>
   </div>
   <p class="need-label" style="margin-top:2.2rem">Ce qui les bloque :</p>
   <div class="trio">
@@ -1834,7 +1888,6 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
   <div class="ardoise" style="margin-left:auto;margin-right:auto">
     <div class="term-bar">
       <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-      <span class="term-title">REVENU.CALC</span>
     </div>
     <div class="calc">
       <div class="calc-case">Cas pessimiste</div>
@@ -1865,11 +1918,37 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
 
 <div class="divider"></div>
 
+<section class="qualif-sec" data-screen-label="Qualification">
+  <h2 style="text-align:center;max-width:22ch;margin:0 auto">Reçevez votre <span class="hl">plan d'action</span> personnalisé et offert dès maintenant</h2>
+  <div class="qualif">
+    <div class="q-title">Dites-nous simplement où vous en êtes</div>
+    <div class="q-row">
+      <label class="q-field"><span class="q-lbl">Je suis</span>
+        <select id="qRole"><option>Consultant IA</option><option>Développeur</option><option>Agence</option><option>Formateur IA</option><option>Cabinet de conseil</option></select>
+      </label>
+      <label class="q-field"><span class="q-lbl">Ce qui me bloque</span>
+        <select id="qPain"><option>Je n'ai pas assez de clients</option><option>J'ai besoin d'un retour sur mon offre</option><option>Mon CA est irrégulier</option><option>Je ne sais pas ce qui bloque</option></select>
+      </label>
+      <a class="btn btn-primary btn-lg js-book" id="qBook" href="https://cal.com/pierre-joseph/contrats-consulting" target="_blank" rel="noopener">Appel Bilan (gratuit)<span class="arr">↗</span></a>
+    </div>
+    <div class="q-chips" id="qChips">
+      <button type="button" class="q-chip active">Consultant IA</button>
+      <button type="button" class="q-chip">Développeur</button>
+      <button type="button" class="q-chip">Agence</button>
+      <button type="button" class="q-chip">Formateur IA</button>
+      <button type="button" class="q-chip">Cabinet de conseil</button>
+    </div>
+    <div class="q-note">45 min offertes pour faire le point. Plus que quelques créneaux cette semaine.</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <div class="wa-sol-flow">
 <div class="wa-section" id="club">
     <div class="wa-copy">
       <div class="eyebrow">Le club WhatsApp</div>
-      <h3 class="wa-h">Rejoins le club des <span class="hl">consultants IA</span> francophones.</h3>
+      <h3 class="wa-h">Rejoignez le club des <span class="hl">consultants IA</span> francophones.</h3>
       <p class="wa-p">Plus de <span class="hl">150 consultants IA</span> y partagent leurs opportunités, leurs retours terrain et leurs connexions business.</p>
       <a class="btn btn-primary btn-lg" href="https://chat.whatsapp.com/Di1K2XU3ToB5fV2PGBSlae" target="_blank" rel="noopener">Rejoindre le groupe WhatsApp<span class="arr">↗</span></a>
       </div>
@@ -1906,8 +1985,8 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
       <div class="sys-pico" style="-webkit-mask-image:url('images/pico-c.png');mask-image:url('images/pico-c.png')"></div>
       <div class="sys-txt">
         <div class="bignum">02</div>
-        <h3>Une ingénierie conversationnelle Whatsapp, mail &amp; LinkedIn</h3>
-        <p>Un flux régulier de rendez-vous avec les bonnes personnes. Sans dépendre du bouche-à-oreille.</p>
+        <h3>Une ingénierie conversationnelle automatisée</h3>
+        <p>Un flux régulier de rendez-vous avec les bonnes personnes grâce à des campagnes LinkedIn, Mail, Whatsapp et Courriers. Sans dépendre du bouche-à-oreille.</p>
       </div>
     </div>
     <div class="card">
@@ -1922,8 +2001,8 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
       <div class="sys-pico" style="-webkit-mask-image:url('images/pico-d.png');mask-image:url('images/pico-d.png')"></div>
       <div class="sys-txt">
         <div class="bignum">04</div>
-        <h3>Une livraison asynchrone</h3>
-        <p>Désynchroniser son temps en se positionnant comme partenaire de réflexion auprès des dirigeants.</p>
+        <h3>Une méthode de vente unique</h3>
+        <p>Vous apprendrez la vente inspirée des meilleurs Sales aux US : Jeremy Miner, Dan Henry, Cole Gordon &amp; Marco Robert</p>
       </div>
     </div>
   </div>
@@ -1992,8 +2071,9 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
       <div class="eyebrow">On avance avec vous</div>
       <h2 class="together-title">Votre objectif devient le nôtre.<br/><span class="hl">Jusqu'au résultat.</span></h2>
       <div class="benefits-lite">
-        <div class="bl-item"><span class="bl-dot"></span><div><h3 class="bl-title">Une roadmap exécutée, semaine après semaine.</h3><p class="bl-text">Chaque jalon nous rapproche de plus de rendez-vous, de confiance et de revenus.</p></div></div>
-        <div class="bl-item"><span class="bl-dot"></span><div><h3 class="bl-title">Tout est déjà structuré.</h3><p class="bl-text">Templates, SOPs, scripts, études de cas et role plays : vous avancez sans repartir de zéro.</p></div></div>
+        <div class="bl-item"><span class="bl-num">1</span><div><h3 class="bl-title">Une roadmap 100% personnalisée, semaine après semaine.</h3><p class="bl-text">Chaque jalon rapproche des rendez-vous et des revenus.</p></div></div>
+        <div class="bl-item"><span class="bl-num">2</span><div><h3 class="bl-title">Tout est déjà structuré.</h3><p class="bl-text">Templates, SOPs, scripts, role plays : vous calquez nos systèmes.</p></div></div>
+        <div class="bl-item"><span class="bl-num">3</span><div><h3 class="bl-title">600 h de contenu, mais jamais à parcourir seul.</h3><p class="bl-text">L'expert référent vous indique les vidéos à regarder maintenant.</p></div></div>
       </div>
     </div>
     <img class="together-illus picto-tint" src="images/rowing-together.png" alt="" aria-hidden="true"/>
@@ -2003,7 +2083,7 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
     <div class="gb-shield" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.6-3 7.6-7 9-4-1.4-7-4.4-7-9V6z"/><path d="M8.5 12l2.3 2.3L15.5 9.8"/></svg></div>
     <div class="gb-k">Notre garantie</div>
     <h3 class="gb-title">Nous prenons le risque pour vous</h3>
-    <p class="gb-text">Si vous n'avez pas généré au moins <strong>2× votre investissement</strong>, nous continuons à vous accompagner <strong>en illimité, sans frais supplémentaires jusqu'à ce que le résultat soit atteint.</strong></p>
+    <p class="gb-text">Si vous n'avez pas généré au moins <strong>3× votre investissement</strong> au bout des 90 jours, nous continuons à vous accompagner <strong>en illimité, sans frais supplémentaires jusqu'à ce que le résultat soit atteint.</strong></p>
     <div class="gb-note">Conditions détaillées communiquées lors de l'accompagnement.</div>
   </div>
 
@@ -2017,14 +2097,13 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
         <div class="eyebrow">Bonus membre</div>
         <h3 class="dc-title">Accès premium à <span class="hl">Digital Crew</span></h3>
         <p class="dc-intro">L'infrastructure IA open source pilotée par Hermès et utilisée par nos clients pour exécuter leur prospection.</p>
-        <div class="dc-badge">250 000 tokens offerts</div>
+        <div style="margin-top:1.6rem"><a class="btn btn-ghost" href="https://www.digitalcrew.tech/en" target="_blank" rel="noopener">Découvrir Digital Crew<span class="arr">↗</span></a></div>
       </div>
     </div>
     <div class="dc-benefits">
       <div class="dc-b"><div class="dc-b-k">10 à 20 outils remplacés</div><div class="dc-b-t">Lemlist, Clay, Apollo, FullEnrich, Unipile…</div></div>
-      <div class="dc-b"><div class="dc-b-k">Liste de contacts jusqu'à 3× moins chers</div><div class="dc-b-t">Recherche, numéros de téléphone et emails.</div></div>
       <div class="dc-b"><div class="dc-b-k">Une équipe autonome d'agents IA</div><div class="dc-b-t">Elle prospecte, enrichit, relance et récupère les verbatims de vos prospects.</div></div>
-      <div class="dc-b"><div class="dc-b-k">Vos agents vous appartiennent</div><div class="dc-b-t">L'infrastructure est open source.</div></div>
+      <div class="dc-b"><div class="dc-b-k">Enrichissement de contacts offert</div><div class="dc-b-t">Nous offrons 10 000 contacts (mails + numéros) selon votre ICP lors de votre onboarding.</div></div>
     </div>
   </div>
 </section>
@@ -2039,6 +2118,7 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
     <div class="vw-card" data-yt="eD72IluGbZo" data-start="255" style="background-image:url('https://i.ytimg.com/vi/eD72IluGbZo/hqdefault.jpg')"><span class="vw-play" aria-hidden="true">▶</span></div>
     <div class="vw-card" data-yt="v64liZxAtPM" data-start="16" style="background-image:url('https://i.ytimg.com/vi/v64liZxAtPM/hqdefault.jpg')"><span class="vw-play" aria-hidden="true">▶</span></div>
     <div class="vw-card" data-yt="g-l4LbtJo8I" data-start="6" style="background-image:url('https://i.ytimg.com/vi/g-l4LbtJo8I/hqdefault.jpg')"><span class="vw-play" aria-hidden="true">▶</span></div>
+    <div class="vw-card" data-yt="avMrrzMN2Aw" data-start="619" style="background-image:url('https://i.ytimg.com/vi/avMrrzMN2Aw/hqdefault.jpg')"><span class="vw-play" aria-hidden="true">▶</span></div>
   </div>
 </section>
 
@@ -2057,19 +2137,6 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
     <div class="xrow"><span class="xm">✕</span><div>les <strong>conversations</strong> jamais démarrées</div></div>
     <div class="xrow"><span class="xm">✕</span><div>les <strong>effets composés</strong> perdus inutilement</div></div>
     </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- S7 — LE DÉCLIC -->
-<section data-screen-label="Le déclic">
-  <div class="question">
-    <div class="q-label">À la fin de la journée, la question reste toujours la même</div>
-    <div class="q-text" style="max-width:46rem">Continuer à courir après vos prospects ou faire en sorte qu'ils arrivent <span class="hl">déjà convaincus</span> ?</div>
-  </div>
-  <div style="text-align:center;margin-top:2.4rem">
-    <a class="btn btn-primary btn-lg js-book" href="https://cal.com/pierre-joseph/contrats-consulting" target="_blank" rel="noopener">Réserver ma roadmap offerte<span class="arr">↗</span></a>
   </div>
 </section>
 
@@ -2113,7 +2180,7 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
 <!-- 11ter — PREUVES : VIDÉOS + MESSAGES -->
 <section class="proof-sec" id="temoignages" data-screen-label="Témoignages">
   <div class="eyebrow">Témoignages</div>
-  <h2>Leurs <span class="hl">résultats</span></h2>
+  <h2>Ils <span class="hl">témoignent</span></h2>
 
   <div class="tmain">
     <div class="tmain-video" id="tmainVideo">
@@ -2141,13 +2208,28 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
   </div>
 </section>
 
+<div class="divider"></div>
+
+<!-- S7 — LE DÉCLIC -->
+<section data-screen-label="Le déclic">
+  <div class="question">
+    <div class="q-label">À la fin de la journée, la question reste toujours la même</div>
+    <div class="q-text" style="max-width:46rem">Continuer à courir après vos prospects ou faire en sorte qu'ils arrivent <span class="hl">déjà convaincus</span> ?</div>
+  </div>
+  <div style="text-align:center;margin-top:2.4rem">
+    <a class="btn btn-primary btn-lg js-book" href="https://cal.com/pierre-joseph/contrats-consulting" target="_blank" rel="noopener">Réserver ma roadmap offerte<span class="arr">↗</span></a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- SIGNATURE LOGO -->
 <div class="siglogo"><img src="images/logo-mark-white-fade.png" alt="" aria-hidden="true"/></div>
 
 <!-- 12 — FINAL CTA -->
 <div class="final-footer-wrap">
 <section class="final" data-screen-label="CTA final">
-  <h2>Recevoir un feedback <span class="hl">personnalisé</span> dès maintenant</h2>
+  <h2>Recevoir un <span class="hl">plan d'action</span> personnalisé 100% offert dès maintenant</h2>
   <p class="lead center">Le temps passe et les effets composés se perdent.</p>
   <div class="hero-cta" style="justify-content:center;margin-bottom:0">
     <a class="btn btn-primary btn-lg js-book" href="https://cal.com/pierre-joseph/contrats-consulting" target="_blank" rel="noopener">Prendre rendez-vous<span class="arr">↗</span></a>
@@ -2161,6 +2243,10 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
 </div>
 
 <script>
+(function(){var role=document.getElementById('qRole'),pain=document.getElementById('qPain'),book=document.getElementById('qBook'),chips=document.getElementById('qChips');if(!role)return;var base=book.getAttribute('href');
+function sync(){book.setAttribute('href',base+'?role='+encodeURIComponent(role.value)+'&besoin='+encodeURIComponent(pain.value));[].forEach.call(chips.children,function(c){c.classList.toggle('active',c.textContent===role.value);});}
+role.addEventListener('change',sync);pain.addEventListener('change',sync);
+[].forEach.call(chips.children,function(c){c.addEventListener('click',function(){role.value=c.textContent;sync();});});sync();})();
 // Carousel témoignages — simple, scroll-snap + flèches + points
 (function(){
   var track=document.getElementById('tcarTrack');
@@ -2319,9 +2405,7 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;al
 
   /* pictos des sections "négatives" → rouges au survol */
   .picto-tint-red{transition:opacity .18s var(--spring),filter .18s var(--spring),transform .18s var(--spring)}
-  .picto-tint-red:hover{opacity:1;transform:translateY(-3px) scale(1.03);
-    filter:brightness(0) saturate(100%) invert(36%) sepia(89%) saturate(3000%) hue-rotate(343deg) brightness(102%) contrast(95%)
-           drop-shadow(0 6px 18px rgba(255,90,90,.35))}
+
 }
 @media(prefers-reduced-motion:reduce){
   *{transition-duration:.01ms !important;animation-duration:.01ms !important}
